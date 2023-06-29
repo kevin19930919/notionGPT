@@ -1,6 +1,5 @@
 vectorstore.pkl
 *DS*
-secret
+secret.ini
 __pycache__
 NotionDB
-config
