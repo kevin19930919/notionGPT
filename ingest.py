@@ -13,9 +13,10 @@ secrets = configparser.ConfigParser()
 secrets.read('secret.ini')
 
 OPENAI_API_KEY = secrets['DEFAULT']['OPENAI_API_KEY']
+DATA_RESOURCE_NAME = secrets['DEFAULT']['DATA_RESOURCE_NAME']
 
 # Load Data
-loader = NotionDirectoryLoader("NotionDB")
+loader = NotionDirectoryLoader(DATA_RESOURCE_NAME)
 raw_documents = loader.load()
 
 # Split text

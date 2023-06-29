@@ -3,3 +3,4 @@ vectorstore.pkl
 secret
 __pycache__
 NotionDB
+config
