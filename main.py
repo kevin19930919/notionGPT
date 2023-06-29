@@ -2,15 +2,13 @@ import pickle
 from query import QAChain
 from langchain.llms import OpenAI
 import configparser
-import tiktoken
+from question import Question
 
 
 secrets = configparser.ConfigParser()
 secrets.read('secret.ini')
 
 OPENAI_API_KEY = secrets['DEFAULT']['OPENAI_API_KEY']
-
-tokenizer = tiktoken.get_encoding("cl100k_base")
 
 if __name__ == "__main__":
     # loading embedding vector data
@@ -29,14 +27,14 @@ if __name__ == "__main__":
     
     while True:
         print("Question:")
-        question = input()
+        content = input()
         # TODO: need limitation for token number of input in a proper way
-        tokens = tokenizer.encode(question, disallowed_special=())
-        if len(tokens) > 50:
+        question = Question(content)
+        if not question.is_token_exceeded():     
             print("Question too long!")
             continue
 
-        result = chain.query(question)
+        result = chain.query(question.content)
         
         print("Answer:")
         print(result)
