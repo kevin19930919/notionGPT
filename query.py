@@ -1,12 +1,10 @@
 from langchain.prompts.prompt import PromptTemplate
-from langchain.llms import OpenAI
-from langchain.chains import ChatVectorDBChain
 from langchain.chains import ConversationalRetrievalChain
 
 _template = """
-Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
-Follow Up Input: {question}
-Standalone question:"""
+Imagine you're chatting with a customer, answer question
+question: {question}
+"""
 CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_template)
 
 class QAChain() :
