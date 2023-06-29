@@ -1,2 +1,5 @@
-.pkl
+vectorstore.pkl
 *DS*
+
+__pycache__
+NotionDB
