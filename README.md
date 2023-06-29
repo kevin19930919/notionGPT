@@ -8,12 +8,12 @@ Clone the repository:
 git clone https://github.com/kevin19930919/notionGPT.git
 ```
 
-## Usage
+## How to Use
+Follow the steps below to use notionGPT:
 
-###
-1. Download data from your Notion page
-2. Create your own secret file, file name should be `secret.ini`. Also need value for `OPENAI_API_KEY`, `DATA_RESOURCE_NAME`
-3. Ingest data:
+1. Start by downloading the data from your desired Notion page
+2. Next, create your `secret.ini` file. This file should include your `OPENAI_API_KEY` and the `DATA_RESOURCE_NAME`
+3. Once you have the data and secrets ready, ingest the data into the system using the following command:
 ```
 python3 ingest.py
 ```
