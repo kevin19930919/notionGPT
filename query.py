@@ -23,5 +23,6 @@ class QAChain() :
         )
     
     def query(self, question) :
+        # TODO: add history of question (TBD)
         result = self.chain({"question": question, "chat_history": []})
-        return result
+        return result["answer"]

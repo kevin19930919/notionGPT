@@ -4,6 +4,7 @@ from langchain.llms import OpenAI
 
 
 if __name__ == "__main__":
+    # loading embedding vector data
     with open("vectorstore.pkl", "rb") as f:
         vectorstore = pickle.load(f)
     
@@ -16,12 +17,13 @@ if __name__ == "__main__":
     
     chain = QAChain(vectorstore, llm)
     
-    chat_history = []
     print("Chat with your docs!")
     while True:
         print("Question:")
         question = input()
+        
+        # TODO: need limitation for token number of input.
         result = chain.query(question)
-        # chat_history.append((question, result["answer"]))
-        print("AI:")
-        print(result["answer"])
+        
+        print("Answer:")
+        print(result)
