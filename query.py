@@ -2,10 +2,12 @@ from langchain.prompts.prompt import PromptTemplate
 from langchain.chains import ConversationalRetrievalChain
 
 _template = """
-Imagine you're chatting with a customer, answer question
+Imagine you're chatting with a human, answer question
+{chat_history}
 question: {question}
+answer:
 """
-CONDENSE_QUESTION_PROMPT = PromptTemplate.from_template(_template)
+QUESTION_PROMPT = PromptTemplate(input_variables = ["chat_history", "question"], template = _template)
 
 class QAChain() :
     def __init__(self, vectorstore, llm) :
@@ -15,12 +17,12 @@ class QAChain() :
     
     def new_chain(self, vectorstore, llm):
         return ConversationalRetrievalChain.from_llm(
-            llm,
-            vectorstore.as_retriever(),
-            condense_question_prompt=CONDENSE_QUESTION_PROMPT,
+            llm = llm,
+            retriever = vectorstore.as_retriever(),
+            condense_question_prompt = QUESTION_PROMPT,
         )
     
-    def query(self, question) :
+    def query(self, question, chat_history) :
         # TODO: add history of question (TBD)
-        result = self.chain({"question": question, "chat_history": []})
+        result = self.chain({"question": question, "chat_history": chat_history})
         return result["answer"]

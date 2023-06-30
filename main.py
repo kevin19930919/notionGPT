@@ -3,6 +3,7 @@ from query import QAChain
 from langchain.llms import OpenAI
 import configparser
 from question import Question
+from conversation import Conversation
 
 
 secrets = configparser.ConfigParser()
@@ -24,17 +25,23 @@ if __name__ == "__main__":
     )
     
     chain = QAChain(vectorstore, llm)
-    
+    chat_history = []
     while True:
         print("Question:")
         content = input()
-        # TODO: need limitation for token number of input in a proper way
-        question = Question(content)
-        if not question.is_token_exceeded():     
-            print("Question too long!")
+        
+        # end a conversation
+        if content == "end":
+            chat_history = []
+            continue
+        
+        conv = Conversation(content=content, chat_history=chat_history)
+        if not conv.is_all_content_exceed():
+            print("conversation too long!")
             continue
 
-        result = chain.query(question.content)
-        
+        result = chain.query(conv.content, chat_history=conv.chat_history)
+        chat_history.append((conv.content, result))
+
         print("Answer:")
         print(result)
