@@ -20,7 +20,7 @@ class Conversation():
         current_content_token = tokenizer.encode(self.content, disallowed_special=())
         total_token_num += len(current_content_token)
         
-        return total_token_num < 256
+        return total_token_num < 1024
             
             
 

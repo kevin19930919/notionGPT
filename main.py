@@ -19,9 +19,11 @@ if __name__ == "__main__":
     # initial llm
     llm = OpenAI(
         # limit it's diversity of answer
-        temperature=0, 
-        openai_api_key=OPENAI_API_KEY,
-        model_name='gpt-3.5-turbo'
+        temperature = 0, 
+        openai_api_key = OPENAI_API_KEY,
+        model_name = 'gpt-3.5-turbo',
+        max_tokens = 512,
+        
     )
     
     chain = QAChain(vectorstore, llm)
