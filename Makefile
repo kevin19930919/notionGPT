@@ -1,0 +1,3 @@
+
+check-style:
+	pylint **/*.py

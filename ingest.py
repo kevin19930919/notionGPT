@@ -1,13 +1,14 @@
 """
 This script is used to embedding your notion data, and store as file.
 """
+import pickle
+import configparser
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.document_loaders import NotionDirectoryLoader
 from langchain.vectorstores.faiss import FAISS
 
 from langchain.embeddings import OpenAIEmbeddings
-import pickle
-import configparser
+
 
 secrets = configparser.ConfigParser()
 secrets.read('secret.ini')
@@ -32,4 +33,4 @@ vectorstore = FAISS.from_documents(documents, embeddings)
 # Save vectorstore
 with open("vectorstore.pkl", "wb") as f:
     pickle.dump(vectorstore, f)
-
+    
