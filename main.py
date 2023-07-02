@@ -4,8 +4,8 @@ Main script
 import pickle
 import configparser
 from langchain.llms import OpenAI
-from query import QAChain
-from conversation import Conversation
+from adapter.query import QAChain
+from domain.conversation import Conversation
 
 
 secrets = configparser.ConfigParser()
