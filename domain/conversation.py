@@ -43,7 +43,7 @@ class Conversation:
         Returns:
             bool: True if the content and chat history exceed the token limit, False otherwise.
         """
-        # Not a good practice to hard limit the token size with a fix number, 
+        # Not a good practice to hard limit the token size with a fix number,
         # we can find a way to avoid hitting api limit but also keep conversation going
         return self.token_number < 1024
     

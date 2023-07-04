@@ -10,7 +10,7 @@ Clone the repository:
 git clone https://github.com/kevin19930919/notionGPT.git
 ```
 
-## How to Use
+## How to Start
 
 Follow the steps below to use notionGPT:
 
@@ -39,3 +39,8 @@ or
 ```python
 python3 main.py
 ```
+
+## Note
+
+Every chat will contain the history content(previous questions and answers), until you input keyword "end".
+Entering "end" will clear history data, and start with a new conversation.
