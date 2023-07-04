@@ -35,7 +35,8 @@ class QAChain() :
         """
         return ConversationalRetrievalChain.from_llm(
             llm = llm,
-            retriever = vectorstore.as_retriever(),
+            retriever = vectorstore.as_retriever(search_kwargs={"k": 1}),
+            max_tokens_limit=4097,
             condense_question_prompt = QUESTION_PROMPT,
         )
     def query(self, question: str, chat_history: list[tuple]) :

@@ -38,9 +38,7 @@ if __name__ == "__main__":
         if not conv.is_all_content_exceed():
             print("conversation too long!")
             continue
-
-        result = chain.query(conv.content, chat_history=conv.chat_history)
+        result = chain.query(question=conv.content, chat_history=conv.chat_history)
         chat_history.append((conv.content, result))
-
         print("Answer:")
         print(result)
