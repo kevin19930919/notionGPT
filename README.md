@@ -14,16 +14,28 @@ git clone https://github.com/kevin19930919/notionGPT.git
 
 Follow the steps below to use notionGPT:
 
-1. Start by downloading the data from your desired Notion page
-2. Next, create your `secret.ini` file. This file should include your `OPENAI_API_KEY` and the `DATA_RESOURCE_NAME`
-3. Once you have the data and secrets ready, ingest the data into the system using the following command:
+1. Start by downloading the data from your desired Notion page. [ref](https://www.notion.so/help/export-your-content)
+2. Next, create a file called `secret.ini`. This file should include your `OPENAI_API_KEY` and the `DATA_RESOURCE_NAME`.
+   Looks like this:
+   ![Alt text](/material/img/img1.png)
+3. Download require python package
 
-```python
-python3 ingest.py
+```
+pip3 install -r requirement.txt
+``` 
+
+4. Once you have the data and secrets ready, ingest the data you provide:
+
+```makefile
+make ingest-data
 ```
 
-4. Run app:
+5. Run app:
 
+```makefile
+make chat
+```
+or 
 ```python
 python3 main.py
 ```
