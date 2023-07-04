@@ -5,6 +5,7 @@ This project provides a chat bot with a knowledge base built from user-provided 
 ## Installation
 
 Clone the repository:
+
 ```
 git clone https://github.com/kevin19930919/notionGPT.git
 ```
