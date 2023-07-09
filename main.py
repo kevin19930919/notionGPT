@@ -7,16 +7,22 @@ from langchain.llms import OpenAI
 from adapter.query import QAChain
 from domain.conversation import Conversation
 
+# from adapter.notion.notion_server import NotionDB
+
+
 
 secrets = configparser.ConfigParser()
 secrets.read('secret.ini')
 
 OPENAI_API_KEY = secrets['DEFAULT']['OPENAI_API_KEY']
+NOTION_API_KEY = secrets['DEFAULT']['NOTION_API_KEY']
+NOTION_ROOT_DB_ID = secrets['DEFAULT']['NOTION_ROOT_DB_ID']
 
 if __name__ == "__main__":
     # loading embedding vector data
     with open("vectorstore.pkl", "rb") as f:
         vectorstore = pickle.load(f)
+
     # initial llm
     llm = OpenAI(
         # limit it's diversity of answer
