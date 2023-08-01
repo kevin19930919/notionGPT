@@ -1,6 +1,6 @@
 # notionGPT
 
-This project provides a chat bot with a knowledge base built from user-provided Notion data. It utilizes the langchain library and OpenAI's API to process Notion documents, split the text, embed the text, and store it in a vectorstore for efficient access and retrieval.
+This project provides a chatbot with a knowledge base built from user-provided Notion data. It utilizes the langchain library and OpenAI's API to process Notion documents, split the text, embed the text, and store it in a vectorstore for efficient access and retrieval.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Follow the steps below to use notionGPT:
 2. Next, create a file called `secret.ini`. This file should include your `OPENAI_API_KEY` and the `DATA_RESOURCE_NAME`.
    Looks like this:
    ![Alt text](/material/img/img1.png)
-3. Download require python package
+3. Download all required Python packages
 
 ```
 pip3 install -r requirement.txt
